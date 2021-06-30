@@ -1,0 +1,223 @@
+﻿@model website.Models.ApplyForJob
+
+@{
+    ViewBag.Title = "EditApplyJob";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #222f3e;
+        opacity: 0.8;
+    }
+
+    li {
+        float: left;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+    #nav {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #10ac84;
+    }
+    div{
+        text-align: center;
+    }
+    #txt {
+        cursor: not-allowed;
+        font-size: 20px;
+        border: solid;
+        border-radius: 17px;
+        background-color: white;
+        padding: 20px 50px;
+        margin:5px 420px;
+        opacity: 0.6;
+    }
+    label {
+        color: #111;
+        font-size: 1.5em;
+    }
+    button {
+        background-color: #222f3e;
+        color: white;
+        padding: 16px 20px;
+        border-radius: 17px;
+        border: none;
+        width: 130px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        opacity: 1;
+    }
+        button:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    #btnsav {
+        background-color: #222f3e;
+        color: white;
+        padding: 20px 0px 37px 5px;
+        border-radius: 17px;
+        border: none;
+        width: 130px;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        opacity: 1;
+    }
+        #btnsav:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    input {
+        width: 495px;
+        height: 40px;
+        font-weight: bold;
+        border: solid;
+        padding-left: 8px;
+        background: #f1f1f1;
+        border-radius:17px;
+    }
+
+    #check {
+        width: 250px;
+        height: 30px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        padding-left: 8px;
+        opacity: 0.8;
+    }
+
+    h1, h4 {
+        text-align: center;
+        display: block;
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #8B0000;
+        margin-bottom: 25px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('../../Uploads/site.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+
+    a.create {
+        text-align: center;
+    }
+    a {
+        text-align: center;
+        text-decoration: none;
+        background-color: #222f3e;
+        color: white;
+    }
+
+    #cre {
+        background-color: #222f3e;
+        color: white;
+        padding: 25px 30px;
+        text-align: center;
+        border-radius: 17px;
+        border: none;
+        width: 150px;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+        #cre:hover {
+            opacity: 0.8;
+        }
+
+    select {
+        width: 480px;
+        height: 50px;
+        font-weight: bold;
+        border: solid;
+        border-radius: 5px;
+        padding-left: 8px;
+        background: #f1f1f1;
+        opacity: 0.8;
+    }
+</style>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>EditApplyJob</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.JobId)
+    @Html.HiddenFor(model => model.UserId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.JobId, "Job Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div id="txt" class="col-md-10">
+            @Model.job.JobName
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserId, "User Name", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div id="txt" class="col-md-10">
+            @Model.job.User
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Message, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ApplyDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div id="txt" class="col-md-10">
+            @Model.ApplyDate
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input id="btnsav" type="submit" value="Save Changes" class="btn btn-success" />
+            <br>
+            <br>
+            <button id="btnsav">@Html.ActionLink("Back to  Job List", "GetJobsByUser")</button>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>
+}

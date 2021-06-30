@@ -1,0 +1,54 @@
+﻿@model website.Models.jobs
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2> Job Apply</h2>
+
+<div>
+    <h4>jobs Apply</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.category.categoryName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JobName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JobName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jobdescription)
+        </dt>
+
+        <dd>
+            @Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(model => model.jobdescription).ToString()))
+
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jobphoto)
+        </dt>
+
+        <dd>
+            <img src="~/Uploads/@Html.DisplayFor(model=>model.Jobphoto)"
+                 class="thumbnail"
+                 style="width:48px; height:48px;" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Apply To The Job", "Apply", new { id = Model.id }) |
+    @Html.ActionLink("Go TO The Home Page", "Index")
+</p>

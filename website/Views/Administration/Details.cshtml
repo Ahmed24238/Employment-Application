@@ -1,0 +1,157 @@
+﻿@model  Microsoft.AspNet.Identity.EntityFramework.IdentityRole
+<style>
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #222f3e;
+        opacity: 0.8;
+    }
+
+    li {
+        float: left;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+    #nav {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #10ac84;
+    }
+    div{
+        text-align:center;
+    }
+    dd {
+        cursor: not-allowed;
+        font-size: 20px;
+        border: solid;
+        border-radius: 17px;
+        background-color: white;
+        text-align: center;
+        padding: 20px 50px;
+        margin: 5px 400px;
+        opacity: 0.6;
+    }
+
+    dt {
+        color: #111;
+        font-size: 25px;
+    }
+
+    label {
+        color: #111;
+        font-size: 20px;
+    }
+    input {
+        width: 460px;
+        height: 50px;
+        font-weight: bold;
+        border: solid;
+        border-radius: 5px;
+        padding-left: 8px;
+        background: #f1f1f1;
+    }
+
+    h1, h4 {
+        text-align: center;
+        display: block;
+        font-size: 2.5em;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #8B0000;
+        margin-bottom: 25px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('../../Uploads/site.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+
+    a.create {
+        text-align: center;
+    }
+
+    button {
+        background-color: #222f3e;
+        color: white;
+        padding: 16px 20px;
+        text-align: center;
+        margin: 8px 6;
+        border-radius: 17px;
+        border: none;
+        width: 100px;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+    a {
+        text-align: center;
+        text-decoration: none;
+        background-color: #222f3e;
+        color: white;
+    }
+
+    #cre {
+        background-color: #222f3e;
+        color: white;
+        padding: 25px 30px;
+        margin: 5px;
+        border-radius: 17px;
+        border: none;
+        width: 150px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+        #cre:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+</style>
+<div>
+    <h4>Administration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    </dl>
+</div>
+<div>
+   <button id="cre"> @Html.ActionLink("Edit", "Edit", new { id = Model.Id })</button>
+    <br>
+    <button id="cre">@Html.ActionLink("Back to List", "Index")</button>
+</div>

@@ -1,0 +1,31 @@
+﻿    <!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial scale=1" />
+    <meta name="viewport" content="width=device-width,initial scale=1">
+    <title>4JOB</title>
+    <link href="~/content/Style/navbar.css" rel="stylesheet" />
+</head>
+<body>
+    <!----Navbar-->
+    <ul>
+        <li><a id="nav" class="active" href="~/Home/Index">Home</a></li>
+        <li><a id="nav" href="~/SendMailer/Index">Contact</a></li>
+        <li><a id="nav" href="~/Home/About">About</a></li>
+        <li style="float:right"><a id="nav" href="~/Account/Login">Login</a></li>
+        <li style="float:right"><a id="nav" href="~/Account/Register">Register</a></li>
+    </ul>
+    <!--Login--->
+    @Html.Partial("_Login")
+
+
+    @RenderBody()
+    <!---footer-->
+
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

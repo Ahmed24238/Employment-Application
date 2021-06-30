@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial scale=1" />
+    <meta name="viewport" content="width=device-width,initial scale=1">
+    <title>@Page.Title</title>
+    <link href="~/content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/content/Style/Style.css" rel="stylesheet" />
+</head>
+<body>
+    <!----Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home" class="navbar-brand">
+                    <img src="~/content/photo/logo_size_invert.jpg" class="logo-size">
+                </a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/Home">
+                            <i class="glyphicon glyphicon-home"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Home">
+                            <i class="glyphicon glyphicon-floppy-open"></i>
+                            Jobs
+                        </a>
+                    </li>
+
+
+                    <li>
+                        <a href="/Home/Contact">
+                            <i class="glyphicon glyphicon-envelope"></i>
+                            Connect with us
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Home/About">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                            get to know us
+                        </a>
+                    </li>
+                    <!--Login--->
+                    @Html.Partial("_Login")
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    @RenderBody()
+    <!---footer-->
+    <footer class="navbar navbar-fixed-bottom  myfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-question-sign"></i>
+                        who are we
+                    </h3>
+                    <p>
+                        Culture and Science City
+                    </p>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-globe"></i>
+                        Important sections
+                    </h3>
+                    <ul>
+                        <li><a href="~/Home/Contact#">Engineering sector</a></li>
+                        <li><a href="~/Home/Contact#">Public sector</a></li>
+                        <li><a href="~/Home/Contact#">Miscellaneous functions</a></li>
+                        <li><a href="~/Home/Contact#">Jobs from overseas countries</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h3>
+                        <i class="glyphicon glyphicon-envelope"></i>
+                        Connect with us
+                    </h3>
+                    <ul>
+                        <li><a href="~/Home/Contact#">Facebook</a></li>
+                        <li><a href="~/Home/Contact#">Twiter</a></li>
+                        <li><a href="~/Home/Contact#">Youtube</a></li>
+
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="subfooter">
+            <span>All rights reserved United Team - 2021</span>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

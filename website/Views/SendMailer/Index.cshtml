@@ -1,0 +1,291 @@
+﻿@model SendMailwithAttachment.Models.MailModel
+@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        if ('@ViewBag.Message' == 'Sent') {
+            alert('Mail has been sent successfully');
+        }
+    });
+</script>
+<style>
+    .login {
+        width: 400px;
+        height: 500px;
+        overflow: hidden;
+        margin: 60px 0px 0px 400px;
+        padding: 80px;
+        background: #222f3e;
+        border-radius: 15px;
+        opacity: 0.8;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #222f3e;
+        opacity: 0.8;
+    }
+
+    li {
+        float: left;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+    #nav {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #10ac84;
+    }
+    div , tbody , fieldset  {
+        text-align:center;
+    }
+
+    #mail {
+        border: 2px solid black;
+        border-collapse: collapse;
+        border-radius:17px;
+        margin:5px 360px;
+        padding: 15px;
+        font-family: sans-serif;
+        min-width: 700px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        width: 200px;
+        color: black;
+        font-size: 1.2em;
+        height: 45px;
+    }
+    }
+    label {
+        color: #bdc3c7;
+        font-size: 17px;
+    }
+    #file {
+        width: 200px;
+        height: 30px;
+        border:none;
+        
+    }
+    #send {
+        width: 380px;
+        height: 40px;
+        font-weight: bold;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding-left: 8px;
+        background: #222f3e;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        opacity: 1;
+    }
+        #send:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+    input {
+        width: 380px;
+        height: 40px;
+        font-weight: bold;
+        border: solid;
+        border-radius: 5px;
+        padding-left: 8px;
+        background: #f1f1f1;
+    }
+    textarea {
+        width: 380px;
+        height: 150px;
+        border: solid;
+        border-radius: 5px;
+        padding-left: 8px;
+        background: #f1f1f1;
+    }
+    h1, h4 {
+        color: white;
+        text-align: center;
+        display: block;
+        font-size: 2em;
+        margin-block-start: 0em;
+        margin-block-end: 0.40em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+    }
+
+    hr {
+        border: 1px solid #8B0000;
+        margin-bottom: 25px;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('../../Uploads/site.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+
+    a.create {
+        text-align: center;
+    }
+
+    button {
+        background-color: #10ac84;
+        color: white;
+        width: 380px;
+        height: 50px;
+        font-weight: bold;
+        border: none;
+        border-radius: 17px;
+        padding-left: 8px;
+    }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+    a {
+        text-align: center;
+        text-decoration: none;
+        background-color: #222f3e;
+        color: white;
+    }
+
+    #cre {
+        background-color: #222f3e;
+        color: white;
+        padding: 25px 30px;
+        text-align: center;
+        margin: 20px 670px;
+        border-radius: 17px;
+        border: none;
+        width: 150px;
+        cursor: pointer;
+        opacity: 1;
+    }
+
+        #cre:hover {
+            opacity: 0.8;
+        }
+</style>
+<div>
+<h2>Join us</h2>
+<fieldset>
+    <legend>
+        Send Email
+    </legend>
+    @using (@Html.BeginForm("Index", "SendMailer", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary()
+
+        <table>
+            <tr>
+                <td>
+                    Required department email:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.To)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Subject:
+                </td>
+                <td>
+                    @Html.TextBoxFor(m => m.Subject)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Attachment:
+                </td>
+                <td>
+                    <input id="file" type="file" name="fileUploader" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Message and Communication methods:
+                </td>
+                <td>
+                    @Html.TextAreaFor(m => m.Body)
+                </td>
+            </tr>
+        </table>
+        <input id="send" type="submit" value="Send" />
+    }
+</fieldset> 
+    </div>
+<div>
+<table id="mail">
+    <tr>
+        <th>
+            Department
+        </th>
+        <th>
+            Mail
+        </th>
+
+
+    </tr>
+
+    <tr>
+        <td>
+            Engineer
+        </td>
+        <td>
+        </td>
+
+
+    </tr>
+    <tr>
+        <td>
+            Accounting
+        </td>
+        <td>
+        </td>
+
+
+    </tr>
+    <tr>
+        <td>
+            Private sector
+        </td>
+        <td>
+        </td>
+
+
+    </tr>
+    <tr>
+        <td>
+            Government jobs
+        </td>
+        <td>
+        </td>
+
+
+    </tr>
+</table>
+</div>

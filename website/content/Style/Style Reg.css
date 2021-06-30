@@ -1,0 +1,93 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../photo/veds.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: 'Arial';
+}  
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #222f3e;
+  opacity: 0.8;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #10ac84;
+}
+label{  
+    color: #bdc3c7;  
+}
+h2 {
+    color: #bdc3c7;
+}
+h4 {
+    color: #bdc3c7;
+}
+input {
+    width: 45%;
+    padding: 15px;
+    margin: 5px 0 22px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    opacity: 0.8;
+}
+#AccountType {
+    width: 20%;
+    padding: 10px;
+    margin: 5px 0 15px 10px;
+    border-radius: 5px;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    opacity: 0.8;
+}
+#check {
+    width: 18px;
+    height: 18px;
+}
+#log {
+    background-color: #222f3e;
+    color: white;
+    padding: 16px 20px;
+    text-align: center;
+    margin: 8px 6;
+    border-radius: 17px;
+    border: none;
+    width: 150px;
+    cursor: pointer;
+    opacity: 0.9;
+}  
+span{  
+    color: white;  
+    font-size: 17px;  
+}  
+a{  
+    float: center;  
+    color: #10ac84;	
+}  
+p {
+	color: #bdc3c7;
+}

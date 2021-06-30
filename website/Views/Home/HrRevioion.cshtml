@@ -1,0 +1,58 @@
+﻿@model IEnumerable < website.Models.JobsApp>
+
+
+<h1>HR Revioion</h1>
+<style>
+    body {
+        background-image: url('../../content/photo/hand-painted-watercolor-background.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    h1, h3 {
+        text-align: center;
+        color: #222f3e;
+    }
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 99%;
+    }
+
+    td {
+        border: 1px solid #222f3e;
+        text-align: left;
+        padding: 10px;
+        width: 25%;
+    }
+    th {
+        color: white;
+        background-color: #222f3e;
+        text-align: left;
+        padding: 10px;
+        opacity: 0.8;
+    }
+
+    tr {
+        color: #222f3e;
+    }
+</style>
+@foreach (var gr in Model)
+{
+    <h3>@gr.JobName</h3>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th>Name</th>
+            <th>The Message</th>
+            <th>Date Of Apply</th>
+        </tr>
+        @foreach(var item in gr.Items)
+        {
+            <tr>
+                <td>@item.UserId</td>
+                <td>@item.Message</td>
+                <td>@item.ApplyDate</td>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,154 @@
+﻿@model WebApplication2.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-image: url('../../content/photo/veds.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        font-family: 'Arial';
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #222f3e;
+        opacity: 0.8;
+    }
+
+    li {
+        float: left;
+    }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+            li a:hover:not(.active) {
+                background-color: #111;
+            }
+
+    .active {
+        background-color: #10ac84;
+    }
+
+    label , h2 , h4 {
+        color: #bdc3c7;
+        margin: 5px 0 22px 10px;
+    }
+
+    input {
+        width: 45%;
+        padding: 15px;
+        margin: 5px 0 22px 10px;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        opacity: 0.8;
+    }
+
+    #AccountType {
+        width: 20%;
+        padding: 10px;
+        margin: 5px 0 15px 10px;
+        border-radius: 5px;
+        display: inline-block;
+        border: none;
+        background: #f1f1f1;
+        opacity: 0.8;
+    }
+
+    #check {
+        width: 18px;
+        height: 18px;
+    }
+
+    #log {
+        background-color: #222f3e;
+        color: white;
+        padding: 16px 20px;
+        text-align: center;
+        margin: 5px 0 22px 220px;
+        border-radius: 17px;
+        border: none;
+        width: 150px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        opacity: 0.9;
+    }
+        #log:hover {
+            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+        }
+
+    span {
+        color: white;
+        font-size: 17px;
+    }
+
+    a {
+        float: center;
+        color: #10ac84;
+    }
+
+    p {
+        color: #bdc3c7;
+    }
+</style>
+    <h2>@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h4>Create a new account.</h4>
+        <hr />
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.AccountType, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.DropDownList("AccountType")
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <br>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="log" class="btn btn-default" value="Register" />
+            </div>
+        </div>
+    }
+

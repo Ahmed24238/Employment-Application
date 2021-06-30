@@ -1,0 +1,67 @@
+﻿@model IEnumerable<website.Models.jobs>
+
+@{
+    ViewBag.Title = "jobs";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div class="h">
+    <h2>Jobs list </h2>
+    <style>
+        .h2 {
+            text-align: center;
+        }
+    </style>
+
+    <p>
+        @Html.ActionLink("Create New job", "Create")
+    </p>
+    <style>
+        .th
+        {
+        text-align:center;
+        border:#000000
+
+        }
+    </style>
+</div>
+<table class="table table-stripped table-bordered table-hover text-center" >
+    <tr>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </th>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.JobName)
+        </th>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.jobdescription)
+        </th>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.Jobphoto)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td class="th">
+        @Html.DisplayFor(modelItem => item.category.categoryName)
+    </td>
+    <td class="th">
+        @Html.DisplayFor(modelItem => item.JobName)
+    </td>
+    <td class="th">
+    @Html.DisplayFor(modelItem => item.jobdescription)
+    </td>
+    <td>
+        <img src="~/Uploads/@Html.DisplayFor(Model=>item.Jobphoto)"
+             class="thumbnail" style="width:60px; height:60px;" />
+    </td>
+    <td class="th">
+        @Html.ActionLink("Job Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Job Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete Job", "Delete", new { id = item.id })
+    </td>
+</tr>
+}
+
+</table>

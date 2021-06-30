@@ -1,0 +1,78 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../photo/veds(jobs list).jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    font-family: 'Verdana';
+}  
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #222f3e;
+  opacity: 0.8;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #10ac84;
+}
+h1{  
+    text-align: center;  
+    color: #222f3e;  
+    padding: 10px;	
+}  
+label{  
+    color: #000000;  
+    font-size: 27px;
+}
+input[type=text] {
+  width: 45%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+  opacity: 0.8;
+}
+table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+	width: 100%;
+	 background-color: #696969C;
+    color: #ffffff;
+    text-align: left;
+	font-size: 1.3em;
+	height: 70px;
+	border: 1px solid black;
+	
+}
+th{
+    color: black;
+}
+tr td{
+    color: black;
+}

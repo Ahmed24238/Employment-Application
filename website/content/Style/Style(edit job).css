@@ -1,0 +1,127 @@
+body {
+	font-family: Arial;
+	background-image: url('../photo/dd.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #222f3e;
+  opacity: 0.8;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #10ac84;
+}
+
+
+label {
+	color: #111;
+}
+
+
+input {
+	margin: .4rem;
+	background-color: #222f3e;
+	color: white;
+	padding: 16px 20px;
+	text-align: center;
+	margin: 8px 6;
+	border-radius: 17px;
+	border: none;
+	width: 150px;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+h1  {
+    color: #bdc3c7;  
+}
+	h1.details {
+		color: #333337e6;
+	}
+
+
+input[type=text], input[type=password] {
+  width: 45%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  background: #ffffff;
+  opacity: 0.8;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+
+hr {
+  border: 1px solid #bdc3c7;
+  margin-bottom: 25px;
+}
+
+p  {
+	color: #bdc3c7;
+}
+
+.registerbtn {
+  background-color: #222f3e;
+  color: white;
+  padding: 16px 20px;
+  text-align: center;
+  margin: 8px 6;
+  border-radius: 17px;
+  border: none;
+  width: 150px;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+a {
+	margin: .4rem;
+	background-color: #222f3e;
+	color: white;
+	padding: 16px 20px;
+	text-align: center;
+	margin: 8px 6;
+	border-radius: 17px;
+	border: none;
+	width: 150px;
+	cursor: pointer;
+	opacity: 0.9;
+}
+
+.login {
+	text-align: left;
+}
+dl.dl-horizontal {
+	text-size-adjust: 150%;
+}

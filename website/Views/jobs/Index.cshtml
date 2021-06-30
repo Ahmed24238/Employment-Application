@@ -1,0 +1,181 @@
+﻿@model IEnumerable<website.Models.jobs>
+
+@{
+    ViewBag.Title = "jobs";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+<div class="h">
+    <h2>Jobs list </h2>
+    <p>
+        <button id="cre">@Html.ActionLink("Create New job", "Create")</button>
+    </p>
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #222f3e;
+            opacity: 0.8;
+        }
+
+        li {
+            float: left;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        #nav {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #10ac84;
+        }
+        div , table , tbody{
+            text-align: center;
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            width: 45%;
+            padding: 10px;
+            border-collapse: collapse;
+            font-family: sans-serif;
+            min-width: 237px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            width: 10%;
+            color: #ffffff;
+            text-align: left;
+            font-size: 1.2em;
+            height: 45px;
+        }
+
+        h2 {
+            text-align: center;
+            display: block;
+            font-size: 1.5em;
+            margin-block-start: 0.83em;
+            margin-block-end: 0.83em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            font-weight: bold;
+        }
+
+        hr {
+            border: 1px solid #8B0000;
+            margin-bottom: 25px;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            color: black;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../../Uploads/site.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+
+        a.create {
+            text-align: center;
+        }
+
+        button {
+            background-color: #222f3e;
+            color: white;
+            margin: 2px 1px;
+            padding: 16px 20px;
+            border-radius: 17px;
+            border: none;
+            width: 80px;
+            cursor: pointer;
+            transition-duration: 0.4s;
+            opacity: 1;
+        }
+
+            button:hover {
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+            }
+
+        a {
+            text-align: center;
+            text-decoration: none;
+            background-color: #222f3e;
+            color: white;
+        }
+
+        #cre {
+            background-color: #222f3e;
+            color: white;
+            padding: 25px 30px;
+            text-align: center;
+            border-radius: 17px;
+            border: none;
+            width: 120px;
+            cursor: pointer;
+            opacity: 1;
+        }
+    </style>
+</div>
+<table class="table table-stripped table-bordered table-hover text-center">
+    <tr>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.category.categoryName)
+        </th>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.JobName)
+        </th>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.jobdescription)
+        </th>
+        <th class="th">
+            @Html.DisplayNameFor(model => model.Jobphoto)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="th">
+                @Html.DisplayFor(modelItem => item.category.categoryName)
+            </td>
+            <td class="th">
+                @Html.DisplayFor(modelItem => item.JobName)
+            </td>
+            <td class="th">
+                @Html.DisplayFor(modelItem => item.jobdescription)
+            </td>
+            <td>
+                <img src="~/Uploads/@Html.DisplayFor(Model=>item.Jobphoto)"
+                     class="thumbnail" style="width:100%" />
+            </td>
+            <td class="th">
+                <button>@Html.ActionLink("Edit", "Edit", new { id = item.id })</button> |
+                <button>@Html.ActionLink("Details", "Details", new { id = item.id })</button> |
+                <button>@Html.ActionLink("Delete", "Delete", new { id = item.id })</button>
+            </td>
+        </tr>
+    }
+
+</table>
